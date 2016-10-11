@@ -11,14 +11,14 @@
   <%= hidden_field_tag :sort, params[:sort] %>
 
   <div class="page-header">
-    <%= link_to new_user_path, class: 'btn btn-primary' do %>
+    <%= link_to new_store_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New User
+    New Store
     <% end %>
-    <h1>Listing users</h1>
+    <h1>Listing stores</h1>
   </div>
 
-  <%= form_tag users_path, :method => 'get', :id => "users_search" do %>
+  <%= form_tag stores_path, :method => 'get', :id => "stores_search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
 
@@ -50,20 +50,20 @@
       </thead>
 
       <tbody>
-        <%= content_tag_for(:tr, @users) do |user| %>
-        <td><%= user.latitude %></td>
-        <td><%= user.longitude %></td>
-        <td><%= user.name %></td>
-        <td><%= user.adress %></td>
-        <td><%= user.title %></td>
+        <%= content_tag_for(:tr, @stores) do |store| %>
+        <td><%= store.latitude %></td>
+        <td><%= store.longitude %></td>
+        <td><%= store.name %></td>
+        <td><%= store.adress %></td>
+        <td><%= store.title %></td>
 
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', store %></td>
+        <td><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tbody>
     </table>
-    <%= will_paginate @users %>
+    <%= will_paginate @stores %>
 
   </div>
 
